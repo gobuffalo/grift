@@ -25,6 +25,6 @@ brews:
 -
   name: homebrew-tap
   github:
-    owner: markbates
+    owner: gobuffalo
     name: homebrew-tap
 <% } %>

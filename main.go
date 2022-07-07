@@ -8,7 +8,7 @@ import (
 	"os/signal"
 	"path/filepath"
 
-	"github.com/markbates/grift/cli"
+	"github.com/gobuffalo/grift/cli"
 )
 
 func main() {

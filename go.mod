@@ -1,8 +1,8 @@
-module github.com/markbates/grift
+module github.com/gobuffalo/grift
 
-go 1.13
+go 1.16
 
 require (
-	github.com/gobuffalo/here v0.4.0
-	github.com/stretchr/testify v1.4.0
+	github.com/gobuffalo/here v0.6.6
+	github.com/stretchr/testify v1.8.0
 )

@@ -3,7 +3,7 @@ package cmd
 import (
 	"context"
 
-	"github.com/markbates/grift/cli"
+	"github.com/gobuffalo/grift/cli"
 )
 
 func Run(name string, args []string) error {

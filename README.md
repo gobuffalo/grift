@@ -13,7 +13,7 @@ Grift lets you write these scripts using Go in a really simple and extensible wa
 Installation is really easy using `go get`.
 
 ```text
-$ go get github.com/markbates/grift
+$ go install github.com/gobuffalo/grift@latest
 ```
 
 You can confirm the installation by running:
@@ -50,7 +50,7 @@ $ grift hello
 
 That's really it! Grift is meant to be simple. Write your grifts, use the full power of Go to do it.
 
-For more information I would highly recommend checking out the [docs](https://godoc.org/github.com/markbates/grift/grift).
+For more information I would highly recommend checking out the [docs](https://godoc.org/github.com/gobuffalo/grift/grift).
 
 
 ### Examples:
@@ -64,7 +64,7 @@ import (
 	"os"
 	"strings"
 
-	. "github.com/markbates/grift/grift"
+	. "github.com/gobuffalo/grift/grift"
 )
 
 var _ = Add("boom", func(c *Context) error {

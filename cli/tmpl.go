@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/markbates/grift/grift"
+	"github.com/gobuffalo/grift/grift"
 	_ "{{.Pkg}}"
 )
 

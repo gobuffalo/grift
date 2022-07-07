@@ -3,7 +3,7 @@ package grifts
 import (
 	"fmt"
 
-	. "github.com/markbates/grift/grift"
+	. "github.com/gobuffalo/grift/grift"
 )
 
 var _ = Desc("hello", "Say Hello!")
