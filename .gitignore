@@ -6,6 +6,7 @@ pkg
 *.pid
 coverage
 coverage.data
+cover.out
 build/*
 *.pbxuser
 *.mode1v3

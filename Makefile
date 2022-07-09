@@ -3,64 +3,23 @@ GO_BIN ?= "go"
 
 install:
 	$(GO_BIN) install -tags ${TAGS} -v ./.
-	make tidy
 
 tidy:
-ifeq ($(GO111MODULE),on)
 	$(GO_BIN) mod tidy
-else
-	echo skipping go mod tidy
-endif
-
-deps:
-	$(GO_BIN) get -tags ${TAGS} -t ./...
-	make tidy
-
-build:
-	$(GO_BIN) build -v .
-	make tidy
 
 test:
-	$(GO_BIN) test -cover -tags ${TAGS} ./...
-	make tidy
-
-ci-deps:
-	$(GO_BIN) get -tags ${TAGS} -t ./...
-
-ci-test:
-	$(GO_BIN) test -tags ${TAGS} -race ./...
+	$(GO_BIN) test -cover -race -tags ${TAGS} ./...
 
 cov:
 	$(GO_BIN) test -coverprofile cover.out -tags ${TAGS} ./...
-	go tool cover -html cover.out
-	make tidy
+	$(GO_BIN) tool cover -html cover.out
 
 lint:
-	go get github.com/golangci/golangci-lint/cmd/golangci-lint
+	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.46.2
 	golangci-lint run --enable-all
-	make tidy
 
 update:
-ifeq ($(GO111MODULE),on)
 	rm go.*
-	$(GO_BIN) mod init
+	$(GO_BIN) mod init github.com/gobuffalo/grift
 	$(GO_BIN) mod tidy
-else
-	$(GO_BIN) get -u -tags ${TAGS}
-endif
 	make test
-	make install
-	make tidy
-
-release-test:
-	$(GO_BIN) test -tags ${TAGS} -race ./...
-	make tidy
-
-release:
-	$(GO_BIN) get github.com/gobuffalo/release
-	make tidy
-	release -y -f ./cli/version.go --skip-packr
-	make tidy
-
-
-
